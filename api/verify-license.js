@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-// API — VERIFYE LISANS CLAIRCASH (Vèsyon Senp)
+// API — VERIFYE LISANS CLAIRCASH (ESM Vèsyon)
 // ═══════════════════════════════════════════════════════════
 const LICENSE_SECRET = 'BR-DEVICE-LICENSE-2026';
 
@@ -24,7 +24,7 @@ function simpleHash(str) {
   return (h >>> 0).toString(36).toUpperCase().padStart(8, '0').slice(-8);
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -62,4 +62,4 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({ valid: false, error: err.message });
   }
-};
+}
